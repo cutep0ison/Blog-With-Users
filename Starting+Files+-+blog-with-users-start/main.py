@@ -94,8 +94,7 @@ def adminonly(f):
 @app.route('/')
 def get_all_posts():
     posts = BlogPost.query.all()
-    user = User.query.all()
-    return render_template("index.html", all_posts=posts, all_user=user)
+    return render_template("index.html", all_posts=posts, current_user=current_user)
 
 
 @app.route('/register', methods=["GET", "POST"])
